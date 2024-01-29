@@ -193,8 +193,12 @@ def get_imports_info(
                                 reason=response.reason)
         except HTTPError:
             logging.warning(
-                'Package "%s" does not exist or network problems', item)
-            continue
+                'Package "%s" does not exist or network problems. Setting up dummy stub', item)
+            data = {
+                'name': item,
+                'latest_release_id': '0.0.0',
+                'pypi_url': pypi_server + item
+            }
         logging.warning(
             'Import named "%s" was resolved to "%s:%s" package (%s).\n'
             'Please, verify manually the final list of requirements.txt '

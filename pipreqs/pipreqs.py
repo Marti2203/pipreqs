@@ -204,11 +204,11 @@ def get_imports_info(
             'Please, verify manually the final list of requirements.txt '
             'to avoid possible dependency confusions.',
             item,
-            data.name,
-            data.latest_release_id,
-            data.pypi_url
+            data['name'],
+            data['latest_release_id'],
+            data['pypi_url']
         )
-        result.append({'name': item, 'version': data.latest_release_id})
+        result.append({'name': item, 'version': data['latest_release_id']})
     return result
 
 
